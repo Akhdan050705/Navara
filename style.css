@@ -1,0 +1,858 @@
+/* Nama File: style.css */
+
+/* === GLOBAL STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Variabel Warna */
+:root {
+    --color-primary-dark: #8B0000; /* Merah Marun Tua */
+    --color-primary-light: #B22222; /* Merah Bata */
+    --color-text: #333333;
+    --color-text-light: #FFFFFF;
+    --color-bg-light: #FFF8F8; /* Pink sangat muda */
+    --color-border: #E0E0E0;
+    --color-gold: #FFD700; /* Kuning Emas untuk "Oleh-Oleh" */
+    --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Latar belakang umum dengan pola (seperti di gambar) */
+body {
+    background-color: var(--color-primary-dark);
+    /* Ganti 'batik.png' dengan file gambar pola Anda */
+    background-image: url('images/batik.png'), linear-gradient(135deg, var(--color-primary-dark), var(--color-primary-light));
+    background-blend-mode: overlay;
+    background-size: cover, cover;
+    background-position: center;
+    background-repeat: repeat, no-repeat;
+    color: var(--color-text-light);
+}
+
+.logo {
+    text-align: center; /* Tetap pusatkan container */
+}
+.logo img {
+    max-width: 280px; /* Atur lebar logo Anda di landing page */
+    height: auto; /* Biarkan tinggi otomatis proporsional */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-light {
+    background-color: var(--color-bg-light);
+    color: var(--color-primary-dark);
+    border: 2px solid var(--color-bg-light);
+}
+
+.btn-light:hover {
+    background-color: transparent;
+    color: var(--color-bg-light);
+}
+
+.hidden {
+    display: none;
+}
+
+/* === HALAMAN WELCOME (index.php) === */
+.welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    cursor: pointer;
+}
+
+.welcome-container {
+    max-width: 600px;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Animasi Fade */
+#click-to-start, #role-selection {
+    transition: opacity 0.5s ease-out;
+}
+
+#role-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    opacity: 0; /* Mulai transparan */
+}
+
+/* Saat .hidden dihapus oleh JS, ini akan jalan */
+#role-selection:not(.hidden) {
+    opacity: 1;
+}
+
+/* === HALAMAN LOGIN (login.php) === */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-login {
+    display: block; /* Agar link bisa di-center */
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+.logo-login img {
+    max-width: 240px; /* Buat logo sedikit lebih kecil di hlm login */
+    height: auto;
+}
+
+.login-box {
+    background-color: var(--color-text-light);
+    color: var(--color-text);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    text-align: center;
+}
+
+.login-box h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f4f4f4;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.btn-login:hover {
+    background-color: var(--color-primary-light);
+}
+
+.register-link {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* === HALAMAN DASHBOARD (dashboard.php) === */
+.dashboard-body {
+    display: flex; /* 1. Warna dasar pink muda */
+    background-color: rgba(253, 223, 223, 0.9);
+    background-image: url('images/batik.png'); /* 2. Gambar batik Anda */
+    background-repeat: repeat;
+    background-position: bottom right; /* 3. Posisi di kanan bawah */
+    background-size: 70%; /* 4. Ukuran, sesuaikan jika perlu */
+    background-attachment: fixed; /* 5. Agar background tidak ikut scroll */
+    background-blend-mode: soft-light; /* 6. Campur dgn warna pink */
+    color: var(--color-text);
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 260px; /* Lebar saat diperbesar */
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* BARU */
+.logo-dashboard {
+    display: block;
+    text-decoration: none;
+    text-align: left; /* Logo tetap rata kiri */
+}
+.logo-dashboard img {
+    max-width: 100%; /* Logo akan mengisi lebar sidebar-header */
+    height: auto;
+    /* Sesuaikan padding jika perlu */
+    /* padding: 10px 0; */ 
+}
+
+.sidebar-nav {
+    list-style: none;
+    flex-grow: 1; /* Mendorong footer ke bawah */
+    margin-top: 20px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    white-space: nowrap; /* Mencegah teks turun baris */
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-nav a i {
+    width: 30px; /* Jarak ikon */
+    font-size: 1.1rem;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative; /* Untuk tombol toggle */
+}
+
+.sidebar-footer a {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.sidebar-footer a i {
+    width: 30px;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-bg-light);
+    color: var(--color-primary-dark);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--color-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+/* --- State Sidebar Diciutkan (Collapsed) --- */
+.sidebar.collapsed {
+    width: 80px; /* Lebar saat diciutkan (hanya ikon) */
+}
+
+.sidebar.collapsed .sidebar-header,
+.sidebar.collapsed .sidebar-nav span,
+.sidebar.collapsed .sidebar-footer span {
+    display: none; /* Sembunyikan semua teks */
+}
+
+.sidebar.collapsed .sidebar-nav a i,
+.sidebar.collapsed .sidebar-footer a i {
+    margin-right: 0; /* Hapus margin kanan ikon */
+}
+
+.sidebar.collapsed .sidebar-nav a,
+.sidebar.collapsed .sidebar-footer a {
+    justify-content: center; /* Ikon jadi di tengah */
+}
+
+.sidebar.collapsed .sidebar-toggle {
+    transform: translateY(-50%) rotate(180deg); /* Putar ikon panah */
+}
+
+
+/* --- Main Content --- */
+.main-content {
+    margin-left: 260px; /* Sesuaikan dengan lebar sidebar */
+    width: calc(100% - 260px);
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Penyesuaian main-content saat sidebar diciutkan */
+.sidebar.collapsed + .main-content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.header-welcome {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--color-text-light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+}
+
+.card h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+/* === STYLING PESAN ERROR & SUKSES === */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* === CSS TAMBAHAN UNTUK FORM PRODUK === */
+
+/* Card untuk form, mirip '.card' tapi lebih besar */
+.form-card {
+    background-color: var(--color-text-light);
+    color: var(--color-text);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    max-width: 800px; /* Batasi lebar form */
+    margin: 0 auto; /* Buat form di tengah */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Style untuk input, textarea */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 5px rgba(139, 0, 0, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical; /* Izinkan user resize tinggi textarea */
+    min-height: 100px;
+}
+
+/* Layout 2 kolom (untuk Harga & Stok) */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+.form-group.half-width {
+    flex: 1; /* Bagi rata lebar */
+}
+
+/* Input file */
+.file-input {
+    width: 100%;
+    font-size: 0.9rem;
+}
+/* Chrome/Edge/Safari */
+.file-input::file-selector-button {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+.file-input::file-selector-button:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* Tombol Submit */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    background-color: var(--color-primary-dark);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-submit:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* Pesan Error / Sukses */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive untuk form 2 kolom di HP */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-group.half-width {
+        width: 100%;
+    }
+}
+
+/* === CSS TAMBAHAN UNTUK TABEL PRODUK === */
+
+.table-container {
+    background-color: var(--color-text-light);
+    color: var(--color-text);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    width: 100%;
+    /* Ini penting untuk responsif di HP */
+    overflow-x: auto; 
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Paksa tabel jadi lebar agar tidak sempit */
+}
+
+.table-container th,
+.table-container td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle; /* Jaga konten tetap di tengah */
+}
+
+/* Header Tabel (Sesuai desain Anda) */
+.table-header-dark tr {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+.table-header-dark th {
+    border-bottom: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Atur lebar kolom agar rapi */
+.table-container th:nth-child(1), .table-container td:nth-child(1) { width: 8%; } /* Code */
+.table-container th:nth-child(4), .table-container td:nth-child(4) { width: 15%; } /* Harga */
+.table-container th:nth-child(5), .table-container td:nth-child(5) { width: 8%; } /* Stok */
+.table-container th:nth-child(6), .table-container td:nth-child(6) { width: 12%; } /* Gambar */
+.table-container th:nth-child(7), .table-container td:nth-child(7) { width: 15%; } /* Aksi */
+
+
+/* Thumbnail Gambar Produk */
+.product-image-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+/* Tombol Aksi */
+.aksi-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Agar rapi di layar kecil */
+    gap: 8px;
+}
+
+.btn-aksi {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s;
+}
+.btn-aksi:hover {
+    opacity: 0.8;
+}
+
+.btn-edit {
+    background-color: #c90000; /* Merah (sesuai desain) */
+}
+
+.btn-hapus {
+    background-color: #888; /* Abu-abu (sesuai desain) */
+}
+
+/* Tampilan Jika Produk Kosong */
+.empty-state {
+    text-align: center;
+    padding: 50px;
+}
+.empty-state i {
+    font-size: 4rem;
+    color: var(--color-border);
+    margin-bottom: 20px;
+}
+.empty-state p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* === CSS TAMBAHAN UNTUK PREVIEW GAMBAR EDIT === */
+
+.current-product-image {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--color-border);
+    margin-top: 10px;
+}
+
+/* === CSS TAMBAHAN UNTUK HALAMAN PESANAN === */
+
+/* Header di atas tabel (Judul + Tombol Tambah) */
+.table-container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Jarak ke tabel di bawah */
+}
+
+.table-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--color-text-light); /* Warna teks untuk background merah */
+}
+
+/* Tombol Tambah (di samping judul) */
+.btn-tambah {
+    background-color: #f0f0f0; /* Warna putih/terang */
+    color: var(--color-primary-dark); /* Teks merah */
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700; /* Dibuat tebal agar menonjol */
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-tambah:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Badge untuk Status */
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #333;
+    background-color: #eee;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-processing {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Styling untuk <select> di form */
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    /* Tambahkan panah */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 1.2em;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 5px rgba(139, 0, 0, 0.2);
+}
+
+/* === CSS TAMBAHAN UNTUK HALAMAN PELANGGAN === */
+
+/* Tombol "Lihat Riwayat" (biru seperti link) */
+.btn-riwayat {
+    background-color: transparent !important;
+    color: #007bff; /* Warna biru standar link */
+    padding: 0 !important;
+    text-decoration: underline;
+    font-weight: 700;
+}
+.btn-riwayat:hover {
+    color: #0056b3;
+    opacity: 1 !important;
+}
+
+/* Penyesuaian untuk tombol aksi agar bisa menampung 3 tombol */
+.aksi-buttons {
+    flex-wrap: nowrap; /* Biar tidak turun baris */
+    min-width: 220px; /* Beri space lebih */
+}
+
+/* === CSS TAMBAHAN UNTUK CHECKOUT BARU === */
+
+.checkout-form-container {
+    /* Layout 2 kolom diubah di sini */
+    grid-template-columns: 1.5fr 1fr;
+    align-items: flex-start; /* Jaga agar kolom atasnya rata */
+}
+
+.checkout-left-column, .checkout-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Jarak antar card */
+}
+
+.form-card-checkout, .summary-card-checkout {
+    /* Style card ini sudah ada, pastikan saja */
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    width: 100%; /* Pastikan mengisi kolom */
+}
+
+/* Penyesuaian form dari admin */
+.form-card-checkout .form-group {
+    margin-bottom: 15px; /* Sedikit lebih rapat */
+}
+.form-card-checkout .form-group:last-child {
+    margin-bottom: 0;
+}
+.form-card-checkout label {
+    font-weight: 500; /* Lebih tipis dari admin */
+    font-size: 0.9rem;
+}
+.form-card-checkout input,
+.form-card-checkout textarea,
+.form-card-checkout select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+.form-card-checkout textarea { resize: vertical; }
+
+/* Style untuk dropdown disabled */
+.form-card-checkout select:disabled {
+    background-color: #eee;
+    color: #999;
+}
+
+/* Style untuk Ringkasan Total baru */
+.total-summary-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.total-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+.total-summary-row span:first-child {
+    color: #555;
+}
+.total-summary-row span:last-child {
+    font-weight: 700;
+}
+.total-summary-row.final-total {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--color-border);
+}
+.total-summary-row.final-total strong:last-child {
+    color: var(--color-primary-dark);
+}
+
+/* Tombol disabled */
+.btn-checkout:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.btn-checkout:disabled:hover {
+    background-color: #ccc;
+}
